@@ -45,11 +45,26 @@
             padding: 10px;
             border-radius: 10px;
         }
+        .welcome-container {
+            background: rgba(255, 105, 180, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 50px;
+        }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <h1>💖 Briana's Scavenger Hunt 💖</h1>
-    <div class="container">
+    <div id="welcomeScreen" class="welcome-container">
+        <h1>💖 Welcome, Briana! 💖</h1>
+        <p>Get ready for an adventure! Solve the clues and find your way to the final surprise! 🐼🎀</p>
+        <button onclick="startHunt()">Start the Scavenger Hunt</button>
+    </div>
+
+    <div id="huntScreen" class="container hidden">
         <h2 class="panda">🐼 Your Next Clue 🐼</h2>
         <p id="clueText"></p>
         <input type="text" id="codeInput" placeholder="Enter 5-digit code" maxlength="5">
@@ -58,6 +73,11 @@
     </div>
 
     <script>
+        function startHunt() {
+            document.getElementById("welcomeScreen").classList.add("hidden");
+            document.getElementById("huntScreen").classList.remove("hidden");
+        }
+
         const steps = [
             { clue: "Find the first clue near your favorite coffee spot ☕", code: "12345" },
             { clue: "Next, check the park bench where we talked forever 🌳", code: "54321" },
