@@ -3,60 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scavenger Hunt 🔍</title>
+    <title>Briana's Scavenger Hunt 💖</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        .hidden { display: none; }
-        #clueBox { margin-top: 20px; padding: 15px; border: 1px solid #333; border-radius: 10px; display: inline-block; }
-        input { padding: 8px; font-size: 16px; text-align: center; }
-        button { padding: 10px; font-size: 16px; cursor: pointer; }
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: url('IMG_1173.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 192, 203, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        input {
+            padding: 10px;
+            font-size: 18px;
+            text-align: center;
+            border-radius: 5px;
+            border: 2px solid white;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            background: white;
+            color: pink;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .panda {
+            font-size: 40px;
+        }
     </style>
 </head>
 <body>
-    <h1>🔍 Scavenger Hunt 🔍</h1>
-    <p id="intro">Find the hidden codes and enter them to unlock the next step!</p>
-    <button id="startBtn">Start the Hunt</button>
-
-    <div id="clueBox" class="hidden">
-        <h3 id="clueText"></h3>
+    <h1>💖 Briana's Scavenger Hunt 💖</h1>
+    <div class="container">
+        <h2 class="panda">🐼 Your Next Clue 🐼</h2>
+        <p id="clueText"></p>
         <input type="text" id="codeInput" placeholder="Enter 5-digit code" maxlength="5">
         <button id="submitCode">Submit</button>
         <p id="status"></p>
     </div>
 
     <script>
-        // Steps with codes (update with your own)
         const steps = [
-            { clue: "First clue: Go to the coffee shop ☕", code: "12345" },
-            { clue: "Nice! Now find the bench where we sat last time 🌳", code: "54321" },
-            { clue: "Final step! Go to our special place 😊", code: "98765" }
+            { clue: "Find the first clue near your favorite coffee spot ☕", code: "12345" },
+            { clue: "Next, check the park bench where we talked forever 🌳", code: "54321" },
+            { clue: "Final step! Meet me at our special place 😊", code: "98765" }
         ];
 
         let step = 0;
-
-        document.getElementById("startBtn").addEventListener("click", () => {
-            document.getElementById("intro").style.display = "none";
-            document.getElementById("startBtn").style.display = "none";
-            showClue();
-        });
-
-        function showClue() {
-            if (step < steps.length) {
-                document.getElementById("clueText").innerText = steps[step].clue;
-                document.getElementById("clueBox").classList.remove("hidden");
-                document.getElementById("status").innerText = "";
-                document.getElementById("codeInput").value = "";
-            } else {
-                document.getElementById("clueBox").innerHTML = "<h2>💖 Will you be my girlfriend? 💖</h2>";
-            }
-        }
+        document.getElementById("clueText").innerText = steps[step].clue;
 
         document.getElementById("submitCode").addEventListener("click", () => {
             let enteredCode = document.getElementById("codeInput").value.trim();
             if (enteredCode === steps[step].code) {
-                document.getElementById("status").innerText = "✅ Correct! Moving to the next clue...";
                 step++;
-                setTimeout(showClue, 2000);
+                if (step < steps.length) {
+                    document.getElementById("clueText").innerText = steps[step].clue;
+                    document.getElementById("status").innerText = "✅ Correct! Next clue unlocked!";
+                } else {
+                    document.getElementById("clueText").innerText = "💖 Will you be my girlfriend? 💖";
+                    document.getElementById("status").innerText = "";
+                    document.getElementById("codeInput").style.display = "none";
+                    document.getElementById("submitCode").style.display = "none";
+                }
             } else {
                 document.getElementById("status").innerText = "❌ Wrong code! Try again.";
             }
