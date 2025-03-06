@@ -59,9 +59,9 @@
 </head>
 <body>
     <div id="welcomeScreen" class="welcome-container">
-        <h1>💖 Welcome, Briana! 💖</h1>
-        <p>Get ready for an adventure! Solve the clues and find your way to the final surprise! 🐼🎀</p>
-        <button onclick="startHunt()">Start the Scavenger Hunt</button>
+        <h1>💖 Hiiiiii, Briana! 💖</h1>
+        <p> We both know that I can't surprise you into asking you to be my girlfriend. It's too obvious! So instead, being the out of the box thinking, 6'4, awesome, handsome, ex-Sexual-Assault-Prevention chair (sorry I got off track), I've decided to take you on a scavenger hunt for love! I would say "I hope you enjoy it", but I know you will ;) 🐼🎀</p>
+        <button onclick="startHunt()">Start the Scavenger Hunt (Legend has it that only the prettiest girl ever can successfuly push this button (this button better work or it will be embarassing as shit))</button>
     </div>
 
     <div id="huntScreen" class="container hidden">
@@ -79,9 +79,11 @@
         }
 
         const steps = [
-            { clue: "Find the first clue near your favorite coffee spot ☕", code: "12345" },
-            { clue: "Next, check the park bench where we talked forever 🌳", code: "54321" },
-            { clue: "Final step! Meet me at our special place 😊", code: "98765" }
+            { clue: "Where could it lurk? Perhaps where we kissed and had our first flirt", code: "12121" },
+            { clue: "Yk me man, I'm a big back. I'm holding this code hostage until food isn't what I lack", code: "13131" },
+            { clue: "Well now that I'm fed, we're probably in bed. But we can't cuddle so soon, the clue still looms! Valentines Day. A place where Bri went that Rikhil couldn't. I wonder why? Reverse is all I'll say", code: "12345"},
+            { clue: "Final step! Crazy you called me. No way it exists you told me. But it exists. And it's a walk away", code: "98765" },
+            { clue: "I LIED! BUT I PROMISE THIS IS THE LAST STEP! Go to where our phones be dropping and shit. A frame may have to be moved, but the corner and edge it shall reveal", code: "98765" }
         ];
 
         let step = 0;
@@ -95,7 +97,7 @@
                     document.getElementById("clueText").innerText = steps[step].clue;
                     document.getElementById("status").innerText = "✅ Correct! Next clue unlocked!";
                 } else {
-                    document.getElementById("clueText").innerText = "💖 Will you be my girlfriend? 💖";
+                    document.getElementById("clueText").innerText = "Hi Briana, thanks for finishing my scavenger hunt :). You mean so much to me. Meeting you has made my life so much better and I haven't stopped smiling since. I be loving you and shit you know? Like a lot. I'm a cooked lil guy. But that's okay. I'm a gambling man hehe. I love you I love you I love you. If you don't say it back it's going to be awkward so now you have to say it back mwuahahaha. Love you slime";
                     document.getElementById("status").innerText = "";
                     document.getElementById("codeInput").style.display = "none";
                     document.getElementById("submitCode").style.display = "none";
